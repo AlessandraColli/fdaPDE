@@ -6,14 +6,20 @@ Authors@R: c(person("Eardi", "Lila", role = c("aut", "cre"),
 		     email = "el425@cam.ac.uk"),
 	      person("Laura M.", "Sangalli", role = "aut",
 		     email = "laura.sangalli@polimi.it"),
+		    person("Eleonora", "Arnone", role = "aut",
+		     email = "eleonora.arnone@polimi.it"),
 	      person("Jim", "Ramsay", role = "aut",
 		     email = " ramsay@psych.mcgill.ca"),
 		    person("Luca", "Formaggia", role = "aut",
 		     email = " luca.formaggia@polimi.it"))
 Author: Eardi Lila [aut, cre],
     Laura M. Sangalli [aut],
+    Eleonora Arnone [aut],
     Jim Ramsay [aut],
     Luca Formaggia [aut]
+    Alessandra Colli [cbt],
+    Luca Colombo [cbt],
+    Carlo de Falco [cbt]
 Maintainer: Eardi Lila <el425@cam.ac.uk>
 Depends: 
     R (>= 3.0.0),
@@ -29,4 +35,5 @@ License: CC BY-NC-SA 4.0
 Copyright: See the individual source files for copyrights information
 NeedsCompilation: yes
 SystemRequirements: C++11
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
+Encoding: UTF-8

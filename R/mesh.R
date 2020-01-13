@@ -489,32 +489,7 @@ second.order.mesh.2.5D<-function(nodes, triangles){
   
 }
 
-#' Create a \code{mesh.3D} object from the connectivty matrix and nodes locations
-#'
-#' @param nodes A #nodes-by-3 matrix specifying the locations of each node.
-#' @param tetrahedrons A #tetrahedrons-by-4 matrix specifying the indices of the nodes in each tetrahedrons.
-#' @param order Order of the Finite Element basis. Only order = 1 is currently implemented.
-#' @return An object of the class \code{mesh.3D} with the following output:
-#' \itemize{
-#' \item{\code{nnodes}}{The #nodes in the mesh.}
-#' \item{\code{ntetrahedrons}}{The #tetrahedrons in the mesh.}
-#' \item{\code{nodes}}{A #nodes-by-3 matrix containing the x,y and z coordinate for each point of the mesh.}
-#' \item{\code{tetrahedrons}}{A #tetrahedrons-by-4 matrix specifying the indices of the nodes in each tetrahedron of the mesh.}
-#' \item{\code{order}}{It specifies the order of the associated Finite Element basis. When order = 1, each 
-#' mesh tetrahedron is represented by 4 nodes (the tetrahedron vertices).}
-#' }
-#' #@export
-#' @examples
-#' library(fdaPDE)
-#'
-#' ##Load the matrix nodes and tetrahedrons
-#' data(sphere3Ddata)
-#'
-#' nodes=sphere3Ddata$nodes
-#' tetrahedrons=sphere3Ddata$tetrahedrons
-#'
-#' ##Create the triangulated mesh from the connectivity matrix and nodes locations
-#' mesh=create.mesh.3D(nodes,tetrahedrons)
+
 
 create.mesh.3D<- function(nodes, tetrahedrons, order = 1)
 {
