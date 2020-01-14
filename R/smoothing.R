@@ -90,6 +90,10 @@
 #' 
 #' #### No prior information about anysotropy/non-stationarity (laplacian smoothing) ####
 #' data(horseshoe2D)
+#' boundary_nodes = horseshoe2D$boundary_nodes
+#' boundary_segments = horseshoe2D$boundary_segments
+#' locations = horseshoe2D$locations
+#' 
 #' mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
 #' FEMbasis = create.FEM.basis(mesh)
 #' lambda = 10^-1
@@ -124,6 +128,11 @@
 #' #### Smoothing with prior information about anysotropy/non-stationarity and boundary conditions ####
 #' # See Azzimonti et al. for reference to the current exemple
 #' data(quasicircle2D)
+#' boundary_nodes = quasicircle2D$boundary_nodes
+#' boundary_segments = quasicircle2D$boundary_segments
+#' locations = quasicircle2D$locations
+#' data = quasicircle2D$data
+#' 
 #' mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
 #' FEMbasis = create.FEM.basis(mesh)
 #' lambda = 10^-2
@@ -185,6 +194,9 @@
 #' #### Smoothing with areal data ####
 #' # See Azzimonti et al. for reference to the current exemple
 #' data(quasicircle2Dareal)
+#' incidence_matrix = quasicircle2Dareal$incidence_matrix
+#' data = quasicircle2Dareal$data
+#' mesh = quasicircle2Dareal$mesh
 #' 
 #' FEMbasis = create.FEM.basis(mesh)
 #' lambda = 10^-4

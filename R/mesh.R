@@ -93,6 +93,10 @@ triangulate_native <- function(P, PB, PA, S, SB,H, TR, flags) {
 #' 
 #' ## Upload the quasicirle2D data
 #' data(quasicircle2D)
+#' boundary_nodes = quasicircle2D$boundary_nodes
+#' boundary_segments = quasicircle2D$boundary_segments
+#' locations = quasicircle2D$locations
+#' data = quasicircle2D$data
 #' 
 #' ## Create mesh from boundary
 #' ## if the domain is convex it is sufficient to call:
@@ -275,6 +279,10 @@ create.mesh.2D <- function(nodes, nodesattributes = NA, segments = NA, holes = N
 #' 
 #' ## Upload the quasicircle2D data
 #' data(quasicircle2D)
+#' boundary_nodes = quasicircle2D$boundary_nodes
+#' boundary_segments = quasicircle2D$boundary_segments
+#' locations = quasicircle2D$locations
+#' data = quasicircle2D$data
 #' 
 #' ## Create mesh from boundary:
 #' mesh = create.mesh.2D(nodes = boundary_nodes, segments = boundary_segments)
@@ -389,6 +397,8 @@ refine.mesh.2D<-function(mesh, minimum_angle = NA, maximum_area = NA, delaunay =
 #'
 #' ## Upload the hub2.5D the data
 #' data(hub2.5D)
+#' hub2.5D.nodes = hub2.5D$hub2.5D.nodes
+#' hub2.5D.triangles = hub2.5D$hub2.5D.triangles
 #'
 #' ## Create mesh from nodes and connectivity matrix:
 #' mesh = create.mesh.2.5D(nodes = hub2.5D.nodes, triangles = hub2.5D.triangles)

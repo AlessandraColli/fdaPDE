@@ -16,6 +16,9 @@
 #' library(fdaPDE)
 #' ## Upload the horseshoe2D data
 #' data(horseshoe2D)
+#' boundary_nodes = horseshoe2D$boundary_nodes
+#' boundary_segments = horseshoe2D$boundary_segments
+#' locations = horseshoe2D$locations
 #' 
 #' ## Create the 2D mesh
 #' mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
@@ -62,6 +65,11 @@ if(class(x$FEMbasis$mesh)=="mesh.2D"){
 #' 
 #' ## Upload the quasicirle2D data
 #' data(quasicircle2D)
+#' boundary_nodes = quasicircle2D$boundary_nodes
+#' boundary_segments = quasicircle2D$boundary_segments
+#' locations = quasicircle2D$locations
+#' data = quasicircle2D$data
+#' 
 #' ## Create mesh 
 #' mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
 #' 
@@ -89,6 +97,8 @@ plot.mesh.2D<-function(x, ...)
 #'
 #' ## Upload the hub2.5D the data
 #' data(hub2.5D)
+#' hub2.5D.nodes = hub2.5D$hub2.5D.nodes
+#' hub2.5D.triangles = hub2.5D$hub2.5D.triangles
 #'
 #' ## Create mesh
 #' mesh = create.mesh.2.5D(nodes = hub2.5D.nodes, triangles = hub2.5D.triangles)
@@ -401,6 +411,9 @@ plot.mesh.3D<-function(x,...){
  #' library(fdaPDE)
  #' ## Upload the horseshoe2D data
  #' data(horseshoe2D)
+ #' boundary_nodes = horseshoe2D$boundary_nodes
+ #' boundary_segments = horseshoe2D$boundary_segments
+ #' locations = horseshoe2D$locations
  #' 
  #' ## Create the 2D mesh
  #' mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
