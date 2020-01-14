@@ -124,7 +124,7 @@
 #' #### Smoothing with prior information about anysotropy/non-stationarity and boundary conditions ####
 #' # See Azzimonti et al. for reference to the current exemple
 #' data(quasicircle2D)
-#' mesh = create.MESH.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
+#' mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
 #' FEMbasis = create.FEM.basis(mesh)
 #' lambda = 10^-2
 #' 
