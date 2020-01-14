@@ -55,8 +55,6 @@ fs.test <- function (x, y, r0 = 0.1, r = 0.5, l = 3, b = 1)
   a[ind] <- -atan(y[ind]/x[ind]) * r 
   d[ind] <-( sqrt(x[ind]^2 + y[ind]^2) - r )* (y[ind]/r0*(as.numeric(abs(y[ind])<=r0 & x[ind]>-0.5))+(as.numeric(abs(y[ind])>r0 || x[ind]<(-0.5))))
   
-  ind <- abs(d) > r - r0 | (x > l & (x - l)^2 + d^2 > (r - r0)^2)
-  
   f <- a * b + d^2
   
   f
