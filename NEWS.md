@@ -2,7 +2,7 @@
 
 ## New features
 
-1) smooth regression for manifold and volumetric domains 
+1) smooth regression for manifold domains 
 2) smooth regression with areal data 
 3) functional smooth PCA (SF-PCA algorithm) : function FEM.FPCA
 4) Stochastic GCV computation has been added: parameter 'GCVmethod' can be used both regression and FPCA, can be either 'Stochastic' or 'Exact'.
