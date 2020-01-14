@@ -6,8 +6,6 @@
 #' @param l The length of an arm of the sausage.
 #' @param b The rate at which the function increases per unit increase in distance along the centre line of the sausage.
 #' @param exclude Should exterior points be set to NA?
-#' @param n.theta How many points to use in a piecewise linear representation of a quarter of a circle, when 
-#' generating the boundary curve.
 #' @description Implements a finite area test function based on one proposed by Tim Ramsay (2002) proposed by 
 #' Simon Wood (2008).
 #' @return Returns function evaluations, or NAs for points outside the horseshoe domain. 
