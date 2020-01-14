@@ -5,11 +5,10 @@
 #' @param r The radius of the curve at the centre of the sausage.
 #' @param l The length of an arm of the sausage.
 #' @param b The rate at which the function increases per unit increase in distance along the centre line of the sausage.
-#' @param exclude Should exterior points be set to NA?
 #' @description Implements a finite area test function based on one proposed by Tim Ramsay (2002) proposed by 
 #' Simon Wood (2008).
 #' @return Returns function evaluations, or NAs for points outside the horseshoe domain. 
-#' @usage fs.test(x, y, r0 = 0.1, r = 0.5, l = 3, b = 1, exclude = TRUE)  
+#' @usage fs.test(x, y, r0 = 0.1, r = 0.5, l = 3, b = 1)  
 #' @references 
 #' \itemize{
 #'    \item{Ramsay, T. 2002. Spline smoothing over difficult regions. J.R.Statist. Soc. B 64(2):307-319}
@@ -31,14 +30,14 @@
 #' FEMbasis = create.FEM.basis(mesh)
 #' ## Compute the coeff vector evaluating the desired function at the mesh nodes
 #' ## In this case we consider the fs.test() function introduced by Wood et al. 2008
-#' coeff = fs.test(mesh$nodes[,1], mesh$nodes[,2], exclude = FALSE)
+#' coeff = fs.test(mesh$nodes[,1], mesh$nodes[,2])
 #' ## Create the FEM object
 #' FEMfunction = FEM(coeff, FEMbasis)
 #' ## Plot it
 #' plot(FEMfunction)
 #' @export
 
-fs.test <- function (x, y, r0 = 0.1, r = 0.5, l = 3, b = 1, exclude = TRUE) 
+fs.test <- function (x, y, r0 = 0.1, r = 0.5, l = 3, b = 1) 
 {
   
   q <- pi * r/2
@@ -60,10 +59,6 @@ fs.test <- function (x, y, r0 = 0.1, r = 0.5, l = 3, b = 1, exclude = TRUE)
   
   f <- a * b + d^2
   
-  if (exclude) 
-    f[ind] <- NA
-  
-  attr(f, "exclude") <- ind
   f
 }
 
