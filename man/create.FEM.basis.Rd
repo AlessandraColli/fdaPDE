@@ -34,6 +34,10 @@ quadratic finite elements (when \code{order = 2} in the input \code{mesh}).
 \examples{
 ## Upload the quasicircle2D data
 data(quasicircle2D)
+boundary_nodes = quasicircle2D$boundary_nodes
+boundary_segments = quasicircle2D$boundary_segments
+locations = quasicircle2D$locations
+data = quasicircle2D$data
 
 ## Create the 2D mesh
 mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)

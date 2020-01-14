@@ -64,6 +64,9 @@ library(fdaPDE)
 
 ## Load the hub data
 data(hub2.5D)
+hub2.5D.nodes = hub2.5D$hub2.5D.nodes
+hub2.5D.triangles = hub2.5D$hub2.5D.triangles
+
 mesh = create.mesh.2.5D(nodes = hub2.5D.nodes, triangles = hub2.5D.triangles)
 ## Create the Finite Element basis 
 FEMbasis = create.FEM.basis(mesh)
