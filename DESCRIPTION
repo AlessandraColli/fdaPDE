@@ -1,6 +1,6 @@
 Package: fdaPDE
 Version: 1.0
-Date: 2020-01-03
+Date: 2020-01-14
 Title: Functional Data Analysis and Partial Differential Equations; Statistical Analysis of Functional and Spatial Data, Based on Regression with Partial Differential Equation Regularization
 Authors@R: c(person("Eardi", "Lila", role = c("aut"),
 		     email = "elila@uw.edu"),
@@ -22,7 +22,7 @@ Author: Eardi Lila [aut, cre],
     Carlo de Falco [cbt]
 Maintainer: Eleonora Arnone <eleonora.arnone@polimi.it>
 Depends: 
-    R (>= 3.0.0),
+    R (>= 3.5.0),
     stats, grDevices, graphics, geometry,
     rgl, Matrix, plot3D, plot3Drgl
 LinkingTo: 
