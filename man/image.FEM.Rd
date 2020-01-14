@@ -4,10 +4,10 @@
 \alias{image.FEM}
 \title{Image Plot of a 2D FEM object}
 \usage{
-\method{image}{FEM}(mesh, num_refinements, ...)
+\method{image}{FEM}(x, num_refinements, ...)
 }
 \arguments{
-\item{mesh}{A 2D-mesh \code{FEM} object.}
+\item{x}{A 2D-mesh \code{FEM} object.}
 
 \item{num_refinements}{A natural number specifying how many bisections should by applied to each triangular element for
 plotting purposes. This functionality is useful where a discretization with 2nd order Finite Element is applied.}
