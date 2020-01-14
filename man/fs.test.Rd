@@ -18,9 +18,6 @@ fs.test(x, y, r0 = 0.1, r = 0.5, l = 3, b = 1, exclude = TRUE)
 \item{b}{The rate at which the function increases per unit increase in distance along the centre line of the sausage.}
 
 \item{exclude}{Should exterior points be set to NA?}
-
-\item{n.theta}{How many points to use in a piecewise linear representation of a quarter of a circle, when 
-generating the boundary curve.}
 }
 \value{
 Returns function evaluations, or NAs for points outside the horseshoe domain.

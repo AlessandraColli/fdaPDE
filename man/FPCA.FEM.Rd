@@ -76,7 +76,9 @@ for(ii in 1:50){
   
   func_evaluation = numeric(mesh$nnodes)
   for (i in 0:(mesh$nnodes-1)){
-    func_evaluation[i+1] = a1* sin(2*pi*mesh$nodes[i+1,1]) +  a2* sin(2*pi*mesh$nodes[i+1,2]) +  a3*sin(2*pi*mesh$nodes[i+1,3]) +1
+    func_evaluation[i+1] = a1* sin(2*pi*mesh$nodes[i+1,1]) +  
+                           a2* sin(2*pi*mesh$nodes[i+1,2]) +  
+                           a3* sin(2*pi*mesh$nodes[i+1,3]) + 1
   }
   data = func_evaluation + rnorm(mesh$nnodes, mean = 0, sd = 0.5)
   datamatrix = rbind(datamatrix, data)

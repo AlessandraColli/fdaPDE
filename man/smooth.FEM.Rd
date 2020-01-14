@@ -102,19 +102,22 @@ library(fdaPDE)
 
 #### No prior information about anysotropy/non-stationarity (laplacian smoothing) ####
 data(horseshoe2D)
+mesh = create.mesh.2D(nodes = rbind(boundary_nodes, locations), segments = boundary_segments)
 FEMbasis = create.FEM.basis(mesh)
 lambda = 10^-1
 # no covariate
 data = fs.test(mesh$nodes[,1], mesh$nodes[,2], exclude = FALSE) + rnorm(nrow(mesh$nodes), sd = 0.5)
 
-solution = smooth.FEM.basis(observations = data, FEMbasis = FEMbasis, lambda = lambda)
+solution = smooth.FEM(observations = data, FEMbasis = FEMbasis, lambda = lambda)
 plot(solution$fit.FEM)
 
 # with covariates
 covariate = covs.test(mesh$nodes[,1], mesh$nodes[,2])
-data = fs.test(mesh$nodes[,1], mesh$nodes[,2], exclude = FALSE) + 2*covariate + rnorm(nrow(mesh$nodes), sd = 0.5)
+data = fs.test(mesh$nodes[,1], mesh$nodes[,2], exclude = FALSE) +
+             2*covariate + rnorm(nrow(mesh$nodes), sd = 0.5)
 
-solution = smooth.FEM.basis(observations = data, covariates = covariate, FEMbasis = FEMbasis, lambda = lambda)
+solution = smooth.FEM(observations = data, covariates = covariate, 
+                      FEMbasis = FEMbasis, lambda = lambda)
 # beta estimate:
 solution$beta
 # non-parametric estimate:
@@ -122,7 +125,7 @@ plot(solution$fit.FEM)
 
 # Choose lambda with GCV:
 lambda = 10^(-2:2)
-solution = smooth.FEM.basis(observations = data, 
+solution = smooth.FEM(observations = data, 
                             covariates = covariate, 
                             FEMbasis = FEMbasis, 
                             lambda = lambda, 
@@ -146,10 +149,12 @@ K_func<-function(points)
 {
   output = array(0, c(2, 2, nrow(points)))
   for (i in 1:nrow(points))
-    output[,,i] = 10*rbind(c(points[i,2]^2 + K1*points[i,1]^2 + K2*(R^2 - points[i,1]^2 - points[i,2]^2),
+    output[,,i] = 10*rbind(c(points[i,2]^2 + K1*points[i,1]^2 + 
+                             K2*(R^2 - points[i,1]^2 - points[i,2]^2),
                              (K1-1)*points[i,1]*points[i,2]),
                            c((K1-1)*points[i,1]*points[i,2],
-                             points[i,1]^2 + K1*points[i,2]^2 + K2*(R^2 - points[i,1]^2 - points[i,2]^2)))
+                             points[i,1]^2 + K1*points[i,2]^2 + 
+                             K2*(R^2 - points[i,1]^2 - points[i,2]^2)))
   output
 }
 
@@ -181,7 +186,7 @@ BC$BC_values = rep(0,length(BC$BC_indices)) # homogeneus b.c.
 dataNA = rep(NA, FEMbasis$nbasis)
 dataNA[mesh$nodesmarkers == 0] = data
 
-solution = smooth.FEM.basis(observations = dataNA, 
+solution = smooth.FEM(observations = dataNA, 
                             FEMbasis = FEMbasis, 
                             lambda = lambda, 
                             PDE_parameters = PDE_parameters, 
@@ -205,10 +210,12 @@ K_func<-function(points)
 {
   output = array(0, c(2, 2, nrow(points)))
   for (i in 1:nrow(points))
-    output[,,i] = 10*rbind(c(points[i,2]^2 + K1*points[i,1]^2 + K2*(R^2 - points[i,1]^2 - points[i,2]^2),
+    output[,,i] = 10*rbind(c(points[i,2]^2 + K1*points[i,1]^2 + 
+                             K2*(R^2 - points[i,1]^2 - points[i,2]^2),
                              (K1-1)*points[i,1]*points[i,2]),
                            c((K1-1)*points[i,1]*points[i,2],
-                             points[i,1]^2 + K1*points[i,2]^2 + K2*(R^2 - points[i,1]^2 - points[i,2]^2)))
+                             points[i,1]^2 + K1*points[i,2]^2 + 
+                             K2*(R^2 - points[i,1]^2 - points[i,2]^2)))
   output
 }
 
@@ -236,7 +243,7 @@ BC = NULL
 BC$BC_indices = which(mesh$nodesmarkers == 1) # b.c. on the complete boundary
 BC$BC_values = rep(0,length(BC$BC_indices)) # homogeneus b.c.
 
-solution = smooth.FEM.basis(observations = data, 
+solution = smooth.FEM(observations = data, 
                             incidence_matrix = incidence_matrix,
                             FEMbasis = FEMbasis, 
                             lambda = lambda, 
