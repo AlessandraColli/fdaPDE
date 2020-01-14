@@ -66,9 +66,6 @@ fs.test <- function(x,y,r0=.1,r=.5,l=3,b=1)
   # f <- a*b # the original
   f <- a*b+d^2
   
-  if (exclude) f[ind] <- NA
-  attr(f,"exclude") <- ind
-  f
 }
 
 
