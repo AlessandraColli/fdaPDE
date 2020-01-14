@@ -21,7 +21,6 @@
 #' 
 #' ## Upload the horseshoe2D data
 #' data(horseshoe2D)
-#' data(horseshoe2D)
 #' boundary_nodes = horseshoe2D$boundary_nodes
 #' boundary_segments = horseshoe2D$boundary_segments
 #' locations = horseshoe2D$locations

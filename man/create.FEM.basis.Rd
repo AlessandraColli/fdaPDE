@@ -47,6 +47,8 @@ plot(mesh)
 FEMbasis = create.FEM.basis(mesh)
 ## Upload the hub2.5D data
 data(hub2.5D)
+hub2.5D.nodes = hub2.5D$hub2.5D.nodes
+hub2.5D.triangles = hub2.5D$hub2.5D.triangles
 
 ## Create the 2.5D mesh
 mesh = create.mesh.2.5D(nodes = hub2.5D.nodes, triangles = hub2.5D.triangles)
