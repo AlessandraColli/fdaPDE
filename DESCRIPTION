@@ -11,15 +11,10 @@ Authors@R: c(person("Eardi", "Lila", role = c("aut"),
 	      person("Jim", "Ramsay", role = "aut",
 		     email = " ramsay@psych.mcgill.ca"),
 		    person("Luca", "Formaggia", role = "aut",
-		     email = " luca.formaggia@polimi.it"))
-Author: Eardi Lila [aut],
-    Laura M. Sangalli [aut],
-    Eleonora Arnone [aut, cre],
-    Jim Ramsay [aut],
-    Luca Formaggia [aut]
-    Alessandra Colli [cbt],
-    Luca Colombo [cbt],
-    Carlo de Falco [cbt]
+		     email = " luca.formaggia@polimi.it"),
+		    person("Alessandra", "Colli", role = "cbt"),
+		    person("Luca", "Colombo", role = "cbt"),
+		    person("Carlo", "de Falco", role = "cbt"))
 Maintainer: Eleonora Arnone <eleonora.arnone@polimi.it>
 Depends: 
     R (>= 3.5.0),
