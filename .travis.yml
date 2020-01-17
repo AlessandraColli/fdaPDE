@@ -2,12 +2,7 @@ language: r
 warnings_are_errors: true
 sudo: required
 before_install:
-  - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install mesa-common-dev; fi
-  - wget -O travis_helpers.sh http://bit.ly/travis_helpers
-  - source travis_helpers.sh
-  - rm travis_helpers.sh
-  - PACKAGE_NAME=`package_name`
-  - PACKAGE_DIRECTORY=`basename ${PWD}`
-  - apt-file search GL/glu.h
+  - sudo apt-get install mesa-common-dev; fi
   - sudo apt-get install freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev
-  - libglu1-mesa-dev: /usr/include/GL/glu.h
+
+  
