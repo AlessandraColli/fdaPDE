@@ -12,9 +12,9 @@ Authors@R: c(person("Eardi", "Lila", role = c("aut"),
 		     email = " ramsay@psych.mcgill.ca"),
 		    person("Luca", "Formaggia", role = "aut",
 		     email = " luca.formaggia@polimi.it"),
-		    person("Alessandra", "Colli", role = "cbt"),
-		    person("Luca", "Colombo", role = "cbt"),
-		    person("Carlo", "de Falco", role = "cbt"))
+		    person("Alessandra", "Colli", role = "ctb"),
+		    person("Luca", "Colombo", role = "ctb"),
+		    person("Carlo", "de Falco", role = "ctb"))
 Maintainer: Eleonora Arnone <eleonora.arnone@polimi.it>
 Depends: 
     R (>= 3.5.0),
