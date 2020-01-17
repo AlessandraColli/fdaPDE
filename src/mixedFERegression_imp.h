@@ -228,7 +228,7 @@ void MixedFERegressionBase<InputHandler,Integrator,ORDER, mydim, ndim>::system_f
 		
 		U_ = MatrixXr::Zero(2*nnodes, W.cols());
 		
-		V_ = MatrixXr::Zero(W.cols(),2*nnodes);
+		V_=MatrixXr::Zero(W.cols(),2*nnodes);
 		V_.leftCols(nnodes)=W.transpose()*psi_;
 			
 		if(regressionData_.getNumberOfRegions()==0){ // pointwise data
