@@ -32,11 +32,11 @@ void Evaluator<ORDER,2,2>::eval(Real* X, Real *Y, UInt length, const Real *coef,
 		{
 			//std::cout<<"Position Not Found Naively... \n";
 			isinside[i]=false;
-			
+
 //			#ifdef R_VERSION_
 //			Rprintf("Element %i not found! NA is returned \n", i);
 //		    #endif
-			
+
 		}
 		else
 		{
@@ -85,7 +85,7 @@ void Evaluator<ORDER,2,3>::eval(Real* X, Real *Y,  Real *Z, UInt length, const R
 				coefficients[j] = coef[current_element[j].getId()];
 			}
 			result[i] = evaluate_point<Nodes,2,3>(current_element, current_point, coefficients);
-			
+
 			starting_element = current_element;
 		}
 	}
@@ -125,7 +125,7 @@ void Evaluator<ORDER,3,3>::eval(Real* X, Real *Y,  Real *Z, UInt length, const R
 				coefficients[j] = coef[current_element[j].getId()];
 			}
 			result[i] = evaluate_point<Nodes,3,3>(current_element, current_point, coefficients);
-			
+
 			starting_element = current_element;
 		}
 	}
@@ -135,8 +135,8 @@ void Evaluator<ORDER,3,3>::eval(Real* X, Real *Y,  Real *Z, UInt length, const R
 template <UInt ORDER>
 void Evaluator<ORDER, 2, 2>::integrate(UInt** incidenceMatrix, UInt nRegions, UInt nElements, const Real *coef, Real* result)
 {
-	Real Delta[nRegions];
-	Real integral[nRegions];
+	std::vector<Real> Delta(nRegions);
+	std::vector<Real> integral(nRegions);
 	constexpr UInt Nodes = 3*ORDER;
 	Element<Nodes, 2, 2> current_element;
 
@@ -167,8 +167,8 @@ void Evaluator<ORDER, 2, 2>::integrate(UInt** incidenceMatrix, UInt nRegions, UI
 template <UInt ORDER>
 void Evaluator<ORDER, 2, 3>::integrate(UInt** incidenceMatrix, UInt nRegions, UInt nElements, const Real *coef, Real* result)
 {
-	Real Delta[nRegions];
-	Real integral[nRegions];
+	std::vector<Real> Delta(nRegions);
+	std::vector<Real> integral(nRegions);
 	constexpr UInt Nodes = 3*ORDER;
 	Element<Nodes, 2, 3> current_element;
 
@@ -180,22 +180,22 @@ void Evaluator<ORDER, 2, 3>::integrate(UInt** incidenceMatrix, UInt nRegions, UI
 		{
 			if (incidenceMatrix[region][elem]==1) //elem is in region
 			{
-				
+
 				current_element = mesh_.getElement(elem);
 				Real measure = mesh_.elementMeasure(elem);
 				Delta[region] += measure;
-				
+
 				Real s = 0;
 				for (int node = ORDER==1 ? 0 : 3; node<Nodes; node++)
 				{
 					s+=coef[current_element[node].getId()];
 				}
 				integral[region] += measure*s/(2+1);
-				
+
 			}
 		}
 		result[region]=integral[region]/Delta[region];
-	
+
 	}
 }
 
@@ -203,8 +203,8 @@ void Evaluator<ORDER, 2, 3>::integrate(UInt** incidenceMatrix, UInt nRegions, UI
 template <UInt ORDER>
 void Evaluator<ORDER, 3, 3>::integrate(UInt** incidenceMatrix, UInt nRegions, UInt nElements, const Real *coef, Real* result)
 {
-	Real Delta[nRegions];
-	Real integral[nRegions];
+	std::vector<Real> Delta(nRegions);
+	std::vector<Real> integral(nRegions);
 	constexpr UInt Nodes = 6*ORDER-2;
 	Element<Nodes, 3, 3> current_element;
 
