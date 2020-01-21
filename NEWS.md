@@ -1,3 +1,9 @@
+# fdaPDE 1.0-1
+
+## Bug fixes
+Compilation errors with clang fixed.
+
+
 # fdaPDE 1.0
 
 ## New features
