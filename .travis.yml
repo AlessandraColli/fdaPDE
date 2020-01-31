@@ -22,3 +22,4 @@ matrix:
         - COMPILER=g++-6 C_COMPILER=gcc-6  BUILD_TYPE=Debug
         - ENABLE_SANITIZER=1
         - EXTRA_FLAGS="-fno-omit-frame-pointer -g -O2 -fsanitize=undefined,address -fuse-ld=gold"
+		
