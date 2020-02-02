@@ -10,14 +10,16 @@ sudo: required
 before_install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then sudo apt-get install mesa-common-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev; fi
 
-matrix:
-  include:
-    - r: oldrel
-    - r: release
-    - r: devel
-    - RVERSION=devel _R_SAN_=TRUE _R_CHECK_FULL_=TRUE
+#matrix:
+#  include:
+#    - r: oldrel
+#    - r: release
+#    - r: devel
+#    - RVERSION=devel _R_SAN_=TRUE _R_CHECK_FULL_=TRUE
 
-env:
+jobs: 
+ RVERSION=devel _R_SAN_=TRUE _R_CHECK_FULL_=TRUE _R_CHECK_CRAN_INCOMING=TRUE _R_CHECK_CRAN_INCOMING_REMOTE=TRUE
   
+env:
   global: RGL_USE_NULL=TRUE
 
