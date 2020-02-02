@@ -12,16 +12,20 @@ warnings_are_errors: true
 
 os:
   - linux
-  
-compiler:
-  - gcc 
 
-env:
+matrix:
+ 
+  include:
+   
+    compiler:
+      - gcc 
 
-  - INSTALL_GCC6_FROM_PPA=1
-  - LIBCXX_BUILD=1 LIBCXX_SANITIZER="Undefined;Address"
-  - ENABLE_SANITIZER=1
-  - EXTRA_FLAGS="-g -O2 -fno-omit-frame-pointer -fsanitize=undefined,address -fno-sanitize-recover=all"
+    env:
+
+      - INSTALL_GCC6_FROM_PPA=1
+      - LIBCXX_BUILD=1 LIBCXX_SANITIZER="Undefined;Address"
+      - ENABLE_SANITIZER=1
+      - EXTRA_FLAGS="-g -O2 -fno-omit-frame-pointer -fsanitize=undefined,address -fno-sanitize-recover=all"
 
 before_install:
   - if [ "$TRAVIS_OS_NAME" == "linux" ]; then apt-get install mesa-common-dev freeglut3 freeglut3-dev libglew1.5 libglew1.5-dev libglu1-mesa libglu1-mesa-dev libgl1-mesa-glx libgl1-mesa-dev; fi
