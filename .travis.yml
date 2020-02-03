@@ -2,9 +2,6 @@ language: r
 
 warnings_are_errors: true
 
-os:
-  - linux
-
 sudo: required
 
 before_install:
@@ -12,10 +9,15 @@ before_install:
 
 jobs:
   include:
-    - RVERSION=devel _R_SAN_=TRUE _R_CHECK_FULL_=TRUE
+    - os: linux
+      r: devel
+      env:
+        - _R_SAN_=TRUE 
+        - _R_CHECK_FULL_=TRUE
+        - RGL_USE_NULL=TRUE
 
 #jobs: RVERSION=devel _R_SAN_=TRUE _R_CHECK_FULL_=TRUE _R_CHECK_CRAN_INCOMING_=TRUE _R_CHECK_CRAN_INCOMING_REMOTE_=TRUE _R_CHECK_CRAN_INCOMING_USE_ASPELL_=TRUE _R_CHECK_FORCE_SUGGESTS_=TRUE
   
-env:
-  global: RGL_USE_NULL=TRUE
+#env:
+#  global: RGL_USE_NULL=TRUE
 
